@@ -61,6 +61,7 @@ const RdvPareBrise = () => {
   const [selectedVitrage, setSelectedVitrage] = useState("");
   const [selectedDommage, setSelectedDommage] = useState("");
   const [selectedAssurance, setSelectedAssurance] = useState("");
+  const [autreAssurance, setAutreAssurance] = useState("");
   const [selectedCreneau, setSelectedCreneau] = useState("");
   const [nom, setNom] = useState("");
   const [telephone, setTelephone] = useState("");
@@ -209,6 +210,15 @@ const RdvPareBrise = () => {
                         <option key={a} value={a}>{a}</option>
                       ))}
                     </select>
+                    {selectedAssurance === "Autre" && (
+                      <input
+                        type="text"
+                        value={autreAssurance}
+                        onChange={(e) => setAutreAssurance(e.target.value)}
+                        placeholder="Nom de votre assurance"
+                        className="w-full mt-2 bg-muted border border-border rounded-md px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                      />
+                    )}
                   </div>
                   <div>
                     <label className="text-sm font-medium text-muted-foreground mb-2 block">Carte grise (PDF)</label>
@@ -235,7 +245,7 @@ const RdvPareBrise = () => {
                     </button>
                     <motion.button
                       onClick={() => setStep(3)}
-                      disabled={!selectedAssurance}
+                      disabled={!selectedAssurance || (selectedAssurance === "Autre" && !autreAssurance)}
                       className="flex-1 bg-primary text-primary-foreground py-3 rounded-md font-display font-semibold uppercase tracking-wider disabled:opacity-50"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
@@ -321,7 +331,7 @@ const RdvPareBrise = () => {
                     <p><span className="text-muted-foreground">Immatriculation :</span> {immatriculation}</p>
                     <p><span className="text-muted-foreground">Vitrage :</span> {selectedVitrage}</p>
                     <p><span className="text-muted-foreground">Dommage :</span> {selectedDommage}</p>
-                    <p><span className="text-muted-foreground">Assurance :</span> {selectedAssurance}</p>
+                    <p><span className="text-muted-foreground">Assurance :</span> {selectedAssurance === "Autre" ? autreAssurance : selectedAssurance}</p>
                     <p><span className="text-muted-foreground">Créneau :</span> {selectedCreneau}</p>
                     {carteGrise && <p><span className="text-muted-foreground">Carte grise :</span> {carteGrise.name}</p>}
                   </div>

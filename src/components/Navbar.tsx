@@ -19,7 +19,7 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-4 flex items-center justify-between h-20">
         <a href="#accueil" className="flex items-center gap-3">
-          <img src={logo} alt="GlassPro Services" className="h-14 w-auto rounded" />
+          <img src={logo} alt="GlassPro Services" className="h-14 w-auto object-contain" />
         </a>
 
         {/* Desktop nav */}
