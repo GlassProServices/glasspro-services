@@ -16,7 +16,7 @@ const HeroSection = () => {
         <motion.img
           src={logo}
           alt="GlassPro Services"
-          className="mx-auto h-32 md:h-44 w-auto mb-8 rounded-lg"
+          className="mx-auto h-40 md:h-56 w-auto mb-6 object-contain drop-shadow-2xl"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
@@ -88,7 +88,7 @@ const HeroSection = () => {
           transition={{ duration: 0.8, delay: 1 }}
         >
           {[
-            { icon: Shield, text: "Garantie à vie sur le vitrage" },
+            { icon: Shield, text: "Service de qualité" },
             { icon: Shield, text: "Intervention rapide sous 24h" },
             { icon: Shield, text: "Prise en charge assurance 100%" },
           ].map((item, i) => (

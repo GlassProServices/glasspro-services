@@ -3,37 +3,37 @@ import { Star, Quote } from "lucide-react";
 
 const reviews = [
   {
-    name: "Marie L.",
+    name: "Karim B.",
     rating: 5,
     text: "Pare-brise remplacé en moins de 2h, travail impeccable. La franchise a bien été prise en charge. Je recommande !",
     service: "Remplacement Pare-Brise",
   },
   {
-    name: "Thomas D.",
+    name: "Claire D.",
     rating: 5,
     text: "Équipe très professionnelle et accueillante. Mon véhicule est ressorti comme neuf après le nettoyage profond. Merci !",
     service: "Nettoyage Profond",
   },
   {
-    name: "Sophie M.",
+    name: "Rachid M.",
     rating: 5,
     text: "Rénovation des phares parfaite, on dirait des phares neufs ! Prix très raisonnable et service rapide.",
     service: "Rénovation Phares",
   },
   {
-    name: "Jean-Pierre B.",
+    name: "Nathalie P.",
     rating: 5,
     text: "Changement de distribution effectué avec sérieux. Devis respecté, délai tenu. Un garage de confiance à Marmande.",
     service: "Grosse Mécanique",
   },
   {
-    name: "Camille R.",
+    name: "Yassine A.",
     rating: 5,
     text: "Excellent service ! La prise en charge assurance a été faite directement par eux. Très pratique et sans stress.",
     service: "Remplacement Pare-Brise",
   },
   {
-    name: "Lucas G.",
+    name: "Isabelle G.",
     rating: 4,
     text: "Nettoyage intérieur très soigné, véhicule rendu impeccable. Personnel sympathique. J'y retournerai.",
     service: "Nettoyage Léger",
