@@ -53,8 +53,7 @@ const creneaux = [
   "Vendredi 14h30-18h30",
   "Samedi 9h-12h",
   "Samedi 14h-17h",
-  "Dimanche 9h-12h",
-  "Dimanche 14h-17h",
+  "Dimanche 10h-15h",
 ];
 
 // Simulated reservation counts per slot (in production, this would come from a database)

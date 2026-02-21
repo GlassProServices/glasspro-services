@@ -24,11 +24,10 @@ const creneaux = [
   "Jeudi 9h-12h",
   "Jeudi 14h-18h",
   "Vendredi 9h-12h",
-  "Vendredi 14h-18h",
+  "Vendredi 14h30-18h30",
   "Samedi 9h-12h",
   "Samedi 14h-17h",
-  "Dimanche 9h-12h",
-  "Dimanche 14h-17h",
+  "Dimanche 10h-15h",
 ];
 
 const RdvMecanique = () => {

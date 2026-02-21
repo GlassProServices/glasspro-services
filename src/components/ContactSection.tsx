@@ -66,6 +66,8 @@ const ContactSection = () => {
                 <div className="text-muted-foreground text-sm space-y-1">
                   <p>Lundi - Jeudi : 9h00-12h00 / 14h00-18h00</p>
                   <p>Vendredi : 9h00-12h00 / 14h30-18h30</p>
+                  <p>Samedi : 9h00-12h00 / 14h00-17h00</p>
+                  <p>Dimanche : 10h00-15h00</p>
                 </div>
               </div>
             </div>
@@ -117,13 +119,13 @@ const ContactSection = () => {
             transition={{ duration: 0.6 }}
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2838.5!2d0.1645!3d44.5!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDTCsDMwJzAwLjAiTiAwwrAwOSc1Mi4yIkU!5e0!3m2!1sfr!2sfr!4v1234567890"
+              src="https://maps.google.com/maps?q=Nett+Pare+Brise+Marmande+94+Avenue+Jean+Jaur%C3%A8s+47200+Marmande&t=&z=15&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="100%"
               style={{ border: 0, minHeight: "320px" }}
               allowFullScreen
               loading="lazy"
-              title="Localisation GlassPro Services"
+              title="Localisation GlassPro Services - Marmande"
             />
           </motion.div>
         </div>
