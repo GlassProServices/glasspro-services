@@ -77,7 +77,7 @@ const ContactSection = () => {
               <h4 className="font-semibold text-foreground mb-3">Suivez-nous</h4>
               <div className="flex items-center gap-4">
                 <motion.a
-                  href="https://instagram.com/glasspro_services"
+                  href="https://www.instagram.com/glassproservices47/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -87,7 +87,7 @@ const ContactSection = () => {
                   <Instagram className="w-5 h-5" />
                 </motion.a>
                 <motion.a
-                  href="https://facebook.com/glasspro.services"
+                  href="https://www.facebook.com/profile.php?id=61588331591076"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
@@ -97,7 +97,7 @@ const ContactSection = () => {
                   <Facebook className="w-5 h-5" />
                 </motion.a>
                 <motion.a
-                  href="https://tiktok.com/@glasspro_services"
+                  href="https://www.tiktok.com/@glassproservices47"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
