@@ -76,36 +76,30 @@ const ContactSection = () => {
             <div className="pt-4 border-t border-border">
               <h4 className="font-semibold text-foreground mb-3">Suivez-nous</h4>
               <div className="flex items-center gap-4">
-                <motion.a
+                <a
                   href="https://www.instagram.com/glassproservices47/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
+                  className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors hover:scale-110 active:scale-95"
                 >
                   <Instagram className="w-5 h-5" />
-                </motion.a>
-                <motion.a
+                </a>
+                <a
                   href="https://www.facebook.com/glassproservices47"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
+                  className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors hover:scale-110 active:scale-95"
                 >
                   <Facebook className="w-5 h-5" />
-                </motion.a>
-                <motion.a
+                </a>
+                <a
                   href="https://www.tiktok.com/@glassproservices47"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
+                  className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors hover:scale-110 active:scale-95"
                 >
                   <TikTokIcon />
-                </motion.a>
+                </a>
               </div>
             </div>
           </motion.div>
