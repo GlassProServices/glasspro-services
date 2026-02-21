@@ -64,8 +64,8 @@ const ContactSection = () => {
               <div>
                 <h4 className="font-semibold text-foreground">Horaires d'ouverture</h4>
                 <div className="text-muted-foreground text-sm space-y-1">
-                  <p>Lundi - Vendredi : 9h00-12h00 / 14h00-18h00</p>
-                  <p>Samedi - Dimanche : 9h00-12h00 / 14h00-17h00</p>
+                  <p>Lundi - Jeudi : 9h00-12h00 / 14h00-18h00</p>
+                  <p>Vendredi : 9h00-12h00 / 14h30-18h30</p>
                 </div>
               </div>
             </div>
