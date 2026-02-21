@@ -74,31 +74,40 @@ const ContactSection = () => {
 
             {/* Social */}
             <div className="pt-4 border-t border-border">
-              <h4 className="font-semibold text-foreground mb-3">Suivez-nous</h4>
-              <div className="flex items-center gap-4">
+              <h4 className="font-semibold text-foreground mb-4">Suivez-nous</h4>
+              <div className="space-y-3">
                 <a
                   href="https://www.instagram.com/glassproservices47/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors hover:scale-110 active:scale-95"
+                  className="flex items-center gap-3 group"
                 >
-                  <Instagram className="w-5 h-5" />
+                  <span className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <Instagram className="w-5 h-5" />
+                  </span>
+                  <span className="text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors">GlassProServices47</span>
                 </a>
                 <a
                   href="https://www.facebook.com/glassproservices47"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors hover:scale-110 active:scale-95"
+                  className="flex items-center gap-3 group"
                 >
-                  <Facebook className="w-5 h-5" />
+                  <span className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <Facebook className="w-5 h-5" />
+                  </span>
+                  <span className="text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors">GlassProServices47</span>
                 </a>
                 <a
                   href="https://www.tiktok.com/@glassproservices47"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors hover:scale-110 active:scale-95"
+                  className="flex items-center gap-3 group"
                 >
-                  <TikTokIcon />
+                  <span className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
+                    <TikTokIcon />
+                  </span>
+                  <span className="text-sm font-medium text-muted-foreground group-hover:text-primary transition-colors">@GlassProServices47</span>
                 </a>
               </div>
             </div>
