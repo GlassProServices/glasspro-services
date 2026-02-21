@@ -87,7 +87,7 @@ const ContactSection = () => {
                   <Instagram className="w-5 h-5" />
                 </motion.a>
                 <motion.a
-                  href="https://www.facebook.com/profile.php?id=61588331591076"
+                  href="https://www.facebook.com/glassproservices47"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:bg-primary hover:text-primary-foreground transition-colors"
