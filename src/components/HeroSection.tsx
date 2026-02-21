@@ -50,7 +50,7 @@ const HeroSection = () => {
           <Gift className="w-6 h-6 text-primary flex-shrink-0" />
           <div className="text-left">
             <p className="font-display text-lg font-bold text-primary uppercase">
-              Franchise offerte ou jusqu'à 200€ de cadeau offert
+              Franchise offerte + jusqu'à 200€ de cadeau offert
             </p>
             <p className="text-sm text-muted-foreground">*Voir les conditions en centre</p>
           </div>

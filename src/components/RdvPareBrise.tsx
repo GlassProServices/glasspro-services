@@ -38,6 +38,8 @@ const assurances = [
   "Autre",
 ];
 
+const MAX_RESERVATIONS_PAR_CRENEAU = 4;
+
 const creneaux = [
   "Lundi 9h-12h",
   "Lundi 14h-18h",
@@ -48,12 +50,18 @@ const creneaux = [
   "Jeudi 9h-12h",
   "Jeudi 14h-18h",
   "Vendredi 9h-12h",
-  "Vendredi 14h-18h",
+  "Vendredi 14h30-18h30",
   "Samedi 9h-12h",
   "Samedi 14h-17h",
   "Dimanche 9h-12h",
   "Dimanche 14h-17h",
 ];
+
+// Simulated reservation counts per slot (in production, this would come from a database)
+const getReservationCount = (creneau: string): number => {
+  // Placeholder: returns 0 for all slots. Replace with real data from backend.
+  return 0;
+};
 
 const RdvPareBrise = () => {
   const [step, setStep] = useState(1);
@@ -260,20 +268,33 @@ const RdvPareBrise = () => {
                 <motion.div key="step3" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6">
                   <h3 className="font-display text-xl font-bold uppercase">Choisissez un créneau</h3>
                   <div className="grid grid-cols-2 gap-2">
-                    {creneaux.map((c) => (
-                      <motion.button
-                        key={c}
-                        onClick={() => setSelectedCreneau(c)}
-                        className={`px-4 py-3 rounded-md text-sm border transition-colors ${
-                          selectedCreneau === c
-                            ? "bg-primary/10 border-primary text-foreground"
-                            : "bg-muted border-border text-muted-foreground hover:border-primary/50"
-                        }`}
-                        whileTap={{ scale: 0.97 }}
-                      >
-                        {c}
-                      </motion.button>
-                    ))}
+                    {creneaux.map((c) => {
+                      const count = getReservationCount(c);
+                      const isFull = count >= MAX_RESERVATIONS_PAR_CRENEAU;
+                      const remaining = MAX_RESERVATIONS_PAR_CRENEAU - count;
+                      return (
+                        <motion.button
+                          key={c}
+                          onClick={() => !isFull && setSelectedCreneau(c)}
+                          disabled={isFull}
+                          className={`px-4 py-3 rounded-md text-sm border transition-colors ${
+                            isFull
+                              ? "bg-muted/30 border-border text-muted-foreground/50 cursor-not-allowed line-through"
+                              : selectedCreneau === c
+                              ? "bg-primary/10 border-primary text-foreground"
+                              : "bg-muted border-border text-muted-foreground hover:border-primary/50"
+                          }`}
+                          whileTap={isFull ? {} : { scale: 0.97 }}
+                        >
+                          <span>{c}</span>
+                          {isFull ? (
+                            <span className="block text-xs text-destructive mt-1">Complet</span>
+                          ) : remaining <= 2 ? (
+                            <span className="block text-xs text-primary mt-1">{remaining} place{remaining > 1 ? "s" : ""} restante{remaining > 1 ? "s" : ""}</span>
+                          ) : null}
+                        </motion.button>
+                      );
+                    })}
                   </div>
                   <div className="flex gap-3">
                     <button
