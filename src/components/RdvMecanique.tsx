@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Wrench, CheckCircle } from "lucide-react";
+import { format, parse } from "date-fns";
+import { fr } from "date-fns/locale";
+import DateSlotPicker from "./DateSlotPicker";
 
 const prestations = [
   "Distribution",
@@ -14,21 +17,17 @@ const prestations = [
   "Autre (préciser)",
 ];
 
-const creneaux = [
-  "Lundi 9h-12h",
-  "Lundi 14h-18h",
-  "Mardi 9h-12h",
-  "Mardi 14h-18h",
-  "Mercredi 9h-12h",
-  "Mercredi 14h-18h",
-  "Jeudi 9h-12h",
-  "Jeudi 14h-18h",
-  "Vendredi 9h-12h",
-  "Vendredi 14h30-18h30",
-  "Samedi 9h-12h",
-  "Samedi 14h-17h",
-  "Dimanche 10h-15h",
-];
+const formatSlotLabel = (slotKey: string): string => {
+  if (!slotKey) return "";
+  const [dateStr, timeStr] = slotKey.split("_");
+  try {
+    const date = parse(dateStr, "yyyy-MM-dd", new Date());
+    const dayLabel = format(date, "EEEE d MMMM yyyy", { locale: fr });
+    return `${dayLabel} — ${timeStr}`;
+  } catch {
+    return slotKey;
+  }
+};
 
 const RdvMecanique = () => {
   const [nom, setNom] = useState("");
@@ -146,22 +145,10 @@ const RdvMecanique = () => {
 
             <div>
               <label className="text-sm font-medium text-muted-foreground mb-2 block">Créneau souhaité</label>
-              <div className="grid grid-cols-2 gap-2">
-                {creneaux.map((c) => (
-                  <motion.button
-                    key={c}
-                    onClick={() => setSelectedCreneau(c)}
-                    className={`px-4 py-2.5 rounded-md text-sm border transition-colors ${
-                      selectedCreneau === c
-                        ? "bg-primary/10 border-primary text-foreground"
-                        : "bg-muted border-border text-muted-foreground hover:border-primary/50"
-                    }`}
-                    whileTap={{ scale: 0.97 }}
-                  >
-                    {c}
-                  </motion.button>
-                ))}
-              </div>
+              <DateSlotPicker
+                selectedSlot={selectedCreneau}
+                onSelectSlot={setSelectedCreneau}
+              />
             </div>
 
             <motion.button

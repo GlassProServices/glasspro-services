@@ -326,7 +326,7 @@ const RdvPareBrise = () => {
                     <p><span className="text-muted-foreground">Vitrage :</span> {selectedVitrage}</p>
                     <p><span className="text-muted-foreground">Dommage :</span> {selectedDommage}</p>
                     <p><span className="text-muted-foreground">Assurance :</span> {selectedAssurance === "Autre" ? autreAssurance : selectedAssurance}</p>
-                    <p><span className="text-muted-foreground">Créneau :</span> {selectedCreneau}</p>
+                    <p><span className="text-muted-foreground">Créneau :</span> <span className="capitalize">{formatSlotLabel(selectedCreneau)}</span></p>
                     {carteGrise && <p><span className="text-muted-foreground">Carte grise :</span> {carteGrise.name}</p>}
                   </div>
 
