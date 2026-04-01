@@ -43,26 +43,20 @@ const assurances = [
 
 const MAX_RESERVATIONS_PAR_CRENEAU = 4;
 
-const creneaux = [
-  "Lundi 9h-12h",
-  "Lundi 14h-18h",
-  "Mardi 9h-12h",
-  "Mardi 14h-18h",
-  "Mercredi 9h-12h",
-  "Mercredi 14h-18h",
-  "Jeudi 9h-12h",
-  "Jeudi 14h-18h",
-  "Vendredi 9h-12h",
-  "Vendredi 14h30-18h30",
-  "Samedi 9h-12h",
-  "Samedi 14h-17h",
-  "Dimanche 10h-15h",
-];
-
-// Simulated reservation counts per slot (in production, this would come from a database)
-const getReservationCount = (creneau: string): number => {
-  // Placeholder: returns 0 for all slots. Replace with real data from backend.
+const getReservationCount = (slotKey: string): number => {
   return 0;
+};
+
+const formatSlotLabel = (slotKey: string): string => {
+  if (!slotKey) return "";
+  const [dateStr, timeStr] = slotKey.split("_");
+  try {
+    const date = parse(dateStr, "yyyy-MM-dd", new Date());
+    const dayLabel = format(date, "EEEE d MMMM yyyy", { locale: fr });
+    return `${dayLabel} — ${timeStr}`;
+  } catch {
+    return slotKey;
+  }
 };
 
 const RdvPareBrise = () => {
