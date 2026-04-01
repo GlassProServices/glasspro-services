@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, Upload, Car, AlertTriangle, CheckCircle } from "lucide-react";
+import { format, parse } from "date-fns";
+import { fr } from "date-fns/locale";
+import DateSlotPicker from "./DateSlotPicker";
 
 const vitrages = [
   "Pare-brise avant",
