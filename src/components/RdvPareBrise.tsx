@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, Upload, Car, AlertTriangle, CheckCircle } from "lucide-react";
+import { format, parse } from "date-fns";
+import { fr } from "date-fns/locale";
+import DateSlotPicker from "./DateSlotPicker";
 
 const vitrages = [
   "Pare-brise avant",
@@ -40,26 +43,20 @@ const assurances = [
 
 const MAX_RESERVATIONS_PAR_CRENEAU = 4;
 
-const creneaux = [
-  "Lundi 9h-12h",
-  "Lundi 14h-18h",
-  "Mardi 9h-12h",
-  "Mardi 14h-18h",
-  "Mercredi 9h-12h",
-  "Mercredi 14h-18h",
-  "Jeudi 9h-12h",
-  "Jeudi 14h-18h",
-  "Vendredi 9h-12h",
-  "Vendredi 14h30-18h30",
-  "Samedi 9h-12h",
-  "Samedi 14h-17h",
-  "Dimanche 10h-15h",
-];
-
-// Simulated reservation counts per slot (in production, this would come from a database)
-const getReservationCount = (creneau: string): number => {
-  // Placeholder: returns 0 for all slots. Replace with real data from backend.
+const getReservationCount = (slotKey: string): number => {
   return 0;
+};
+
+const formatSlotLabel = (slotKey: string): string => {
+  if (!slotKey) return "";
+  const [dateStr, timeStr] = slotKey.split("_");
+  try {
+    const date = parse(dateStr, "yyyy-MM-dd", new Date());
+    const dayLabel = format(date, "EEEE d MMMM yyyy", { locale: fr });
+    return `${dayLabel} — ${timeStr}`;
+  } catch {
+    return slotKey;
+  }
 };
 
 const RdvPareBrise = () => {
@@ -266,35 +263,12 @@ const RdvPareBrise = () => {
               {step === 3 && (
                 <motion.div key="step3" initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }} className="space-y-6">
                   <h3 className="font-display text-xl font-bold uppercase">Choisissez un créneau</h3>
-                  <div className="grid grid-cols-2 gap-2">
-                    {creneaux.map((c) => {
-                      const count = getReservationCount(c);
-                      const isFull = count >= MAX_RESERVATIONS_PAR_CRENEAU;
-                      const remaining = MAX_RESERVATIONS_PAR_CRENEAU - count;
-                      return (
-                        <motion.button
-                          key={c}
-                          onClick={() => !isFull && setSelectedCreneau(c)}
-                          disabled={isFull}
-                          className={`px-4 py-3 rounded-md text-sm border transition-colors ${
-                            isFull
-                              ? "bg-muted/30 border-border text-muted-foreground/50 cursor-not-allowed line-through"
-                              : selectedCreneau === c
-                              ? "bg-primary/10 border-primary text-foreground"
-                              : "bg-muted border-border text-muted-foreground hover:border-primary/50"
-                          }`}
-                          whileTap={isFull ? {} : { scale: 0.97 }}
-                        >
-                          <span>{c}</span>
-                          {isFull ? (
-                            <span className="block text-xs text-destructive mt-1">Complet</span>
-                          ) : remaining <= 2 ? (
-                            <span className="block text-xs text-primary mt-1">{remaining} place{remaining > 1 ? "s" : ""} restante{remaining > 1 ? "s" : ""}</span>
-                          ) : null}
-                        </motion.button>
-                      );
-                    })}
-                  </div>
+                  <DateSlotPicker
+                    selectedSlot={selectedCreneau}
+                    onSelectSlot={setSelectedCreneau}
+                    maxPerSlot={MAX_RESERVATIONS_PAR_CRENEAU}
+                    getReservationCount={getReservationCount}
+                  />
                   <div className="flex gap-3">
                     <button
                       onClick={() => setStep(2)}
@@ -352,7 +326,7 @@ const RdvPareBrise = () => {
                     <p><span className="text-muted-foreground">Vitrage :</span> {selectedVitrage}</p>
                     <p><span className="text-muted-foreground">Dommage :</span> {selectedDommage}</p>
                     <p><span className="text-muted-foreground">Assurance :</span> {selectedAssurance === "Autre" ? autreAssurance : selectedAssurance}</p>
-                    <p><span className="text-muted-foreground">Créneau :</span> {selectedCreneau}</p>
+                    <p><span className="text-muted-foreground">Créneau :</span> <span className="capitalize">{formatSlotLabel(selectedCreneau)}</span></p>
                     {carteGrise && <p><span className="text-muted-foreground">Carte grise :</span> {carteGrise.name}</p>}
                   </div>
 
