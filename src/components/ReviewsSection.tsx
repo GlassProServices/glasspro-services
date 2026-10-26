@@ -3,6 +3,12 @@ import { Star, Quote } from "lucide-react";
 
 const reviews = [
   {
+    name: "Danyel N.",
+    rating: 5,
+    text: "Entreprise de confiance. Des débuts prometteurs pour une équipe jeune et motivée qui se met tout naturellement au service de sa clientèle. Le travail est soigné et le timing respecté. Ce qui est dit est fait, le tout avec le sourire. Longue vie à GlassPro Services !",
+    service: "Avis Google",
+  },
+  {
     name: "Karim B.",
     rating: 5,
     text: "Pare-brise remplacé en moins de 2h, travail impeccable. La franchise a bien été prise en charge. Je recommande !",
